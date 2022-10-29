@@ -5,13 +5,11 @@ namespace ClearSky
     public class SimplePlayerController : MonoBehaviour
     {
         public float movePower = 10f;
-       
+
         private Animator anim;
         private int direction = 1;
-        
 
 
-        // Start is called before the first frame update
         void Start()
         {
             anim = GetComponent<Animator>();
@@ -19,7 +17,6 @@ namespace ClearSky
 
         private void Update()
         {
-            //running
             Vector3 moveVelocity = Vector3.zero;
             anim.SetBool("isRun", false);
 
