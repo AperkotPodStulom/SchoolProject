@@ -2,12 +2,18 @@
 
 namespace ClearSky
 {
+    enum Spells
+    {
+        Dragging
+    }
+
     public class SimplePlayerController : MonoBehaviour
     {
-        public float movePower = 10f;
+        [SerializeField] private float movePower = 10f;
 
         private Animator anim;
         private int direction = 1;
+        private Spells spell = new Spells();
 
 
         void Start()
