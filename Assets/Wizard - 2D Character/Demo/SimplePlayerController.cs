@@ -1,12 +1,8 @@
 ﻿using UnityEngine;
+using GlobalThings;
 
 namespace ClearSky
 {
-    enum Spells
-    {
-        Dragging
-    }
-
     public class SimplePlayerController : MonoBehaviour
     {
         [SerializeField] private float movePower = 10f;
@@ -18,6 +14,7 @@ namespace ClearSky
 
         void Start()
         {
+            spell = Spells.Dragging;
             anim = GetComponent<Animator>();
         }
 
