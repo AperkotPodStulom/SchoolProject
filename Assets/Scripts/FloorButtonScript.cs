@@ -39,13 +39,29 @@ public class FloorButtonScript : MonoBehaviour
                         active = true;
                     }
                     break;
+
+                case "Box":
+                    if (!active)
+                    {
+                        //checking point
+                        switch (point)
+                        {
+                            case "CreateObject":
+                                Debug.Log("Spawned");
+                                Instantiate(objectPref, objectCreatePos.position, Quaternion.identity);
+                                break;
+                        }
+                        transform.position += new Vector3(0, -0.10f);
+                        active = true;
+                    }
+                    break;
             }
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if(collision.gameObject.tag == "Player" || collision.gameObject.tag == "Box")
         {
             if (active)
             {

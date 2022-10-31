@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6582462402256813974}
   m_Layer: 0
   m_Name: PF Village Props - Crate Large
-  m_TagString: Player
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,14 +125,14 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 20
+  m_Mass: 50.06
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 2.56
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 0
-  m_CollisionDetection: 1
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!114 &6582462402256813974
 MonoBehaviour:
