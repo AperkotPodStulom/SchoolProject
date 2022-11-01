@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using GlobalThings;
 
 namespace ClearSky
@@ -6,7 +7,9 @@ namespace ClearSky
     public class SimplePlayerController : MonoBehaviour
     {
         [SerializeField] private float movePower = 10f;
+        [SerializeField] private float airGravity;
         [SerializeField] private float maxSpeed = 10f;
+        [SerializeField] private int health;
 
         private Rigidbody2D selectedObject;
         private Vector3 mousePosition;
@@ -17,10 +20,12 @@ namespace ClearSky
         private Rigidbody2D rb;
         private int direction = 1;
         private Spells spell = new Spells();
+        private BoxCollider2D coll;
 
 
         void Start()
         {
+            coll = GetComponent<BoxCollider2D>();
             rb = GetComponent<Rigidbody2D>();
             spell = Spells.Dragging;
             anim = GetComponent<Animator>();
@@ -29,13 +34,11 @@ namespace ClearSky
         private void Update()
         {
             //mooving
-            Vector3 moveVelocity = Vector3.zero;
             anim.SetBool("isRun", false);
 
             if (Input.GetAxisRaw("Horizontal") < 0)
             {
                 direction = -1;
-                moveVelocity = Vector3.left;
 
                 transform.localScale = new Vector3(direction, 1, 1);
                 if (!anim.GetBool("isJump"))
@@ -45,7 +48,6 @@ namespace ClearSky
             if (Input.GetAxisRaw("Horizontal") > 0)
             {
                 direction = 1;
-                moveVelocity = Vector3.right;
 
                 transform.localScale = new Vector3(direction, 1, 1);
                 if (!anim.GetBool("isJump"))
@@ -83,6 +85,13 @@ namespace ClearSky
                     selectedObject = null;
                 }
             }
+
+            //dying
+            if(health <= 0)
+            {
+                Destroy(gameObject);
+                SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
+            }
         }
 
         private void FixedUpdate()
@@ -100,11 +109,19 @@ namespace ClearSky
 
             if(rb.velocity.magnitude <= 5)
             {
-                rb.AddForce(new Vector2(horizontal * movePower, 0), ForceMode2D.Impulse);
+                rb.AddForce(new Vector2(horizontal * movePower, airGravity * Physics2D.gravity.y), ForceMode2D.Force);
             }
             if(horizontal == 0)
             {
                 rb.velocity = new Vector2(0, 0);
+            }
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if(collision.gameObject.tag == "Box" && collision.gameObject.GetComponent<Rigidbody2D>().velocity.magnitude >= 40)
+            {
+                health--;
             }
         }
     }

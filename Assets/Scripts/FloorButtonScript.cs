@@ -22,39 +22,20 @@ public class FloorButtonScript : MonoBehaviour
         Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, coll.size, 0);
         foreach(Collider2D collision in colliders)
         {
-            switch (collision.gameObject.tag)
+            if(collision.gameObject.tag == "Player" || collision.gameObject.tag == "Box")
             {
-                case "Player":
-                    if (!active)
+                if (!active)
+                {
+                    switch (point)
                     {
-                        //checking point
-                        switch (point)
-                        {
-                            case "CreateObject":
-                                Debug.Log("Spawned");
-                                Instantiate(objectPref, objectCreatePos.position, Quaternion.identity);
-                                break;
-                        }
-                        transform.position += new Vector3(0, -0.10f);
-                        active = true;
+                        case "CreateObject":
+                            Debug.Log("Spawned");
+                            Instantiate(objectPref, objectCreatePos.position, Quaternion.identity);
+                            break;
                     }
-                    break;
-
-                case "Box":
-                    if (!active)
-                    {
-                        //checking point
-                        switch (point)
-                        {
-                            case "CreateObject":
-                                Debug.Log("Spawned");
-                                Instantiate(objectPref, objectCreatePos.position, Quaternion.identity);
-                                break;
-                        }
-                        transform.position += new Vector3(0, -0.10f);
-                        active = true;
-                    }
-                    break;
+                    transform.position += new Vector3(0, -0.10f);
+                    active = true;
+                }
             }
         }
     }
