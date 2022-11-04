@@ -29,7 +29,6 @@ public class FloorButtonScript : MonoBehaviour
                     switch (point)
                     {
                         case "CreateObject":
-                            Debug.Log("Spawned");
                             Instantiate(objectPref, objectCreatePos.position, Quaternion.identity);
                             break;
                     }
@@ -47,7 +46,6 @@ public class FloorButtonScript : MonoBehaviour
             if (active)
             {
                 active = false;
-                Debug.Log("Despawned");
                 transform.position += new Vector3(0, 0.10f);
             }
         }

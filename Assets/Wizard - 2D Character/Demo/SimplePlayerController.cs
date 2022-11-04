@@ -10,6 +10,8 @@ namespace ClearSky
         [SerializeField] private float airGravity;
         [SerializeField] private float maxSpeed = 10f;
         [SerializeField] private int health;
+        [SerializeField] private float timeToIgnoreDamage;
+        [SerializeField] private Transform rayStartPos;
 
         private Rigidbody2D selectedObject;
         private Vector3 mousePosition;
@@ -21,6 +23,8 @@ namespace ClearSky
         private int direction = 1;
         private Spells spell = new Spells();
         private BoxCollider2D coll;
+        private bool ignoreDamage = false;
+        private float baseTimeToIgnoreDamage;
 
 
         void Start()
@@ -29,6 +33,7 @@ namespace ClearSky
             rb = GetComponent<Rigidbody2D>();
             spell = Spells.Dragging;
             anim = GetComponent<Animator>();
+            baseTimeToIgnoreDamage = timeToIgnoreDamage;
         }
 
         private void Update()
@@ -92,6 +97,33 @@ namespace ClearSky
                 Destroy(gameObject);
                 SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
             }
+
+            //simple ignoring damage
+            if (ignoreDamage)
+            {
+                timeToIgnoreDamage -= Time.deltaTime;
+            }
+            if(timeToIgnoreDamage <= 0)
+            {
+                timeToIgnoreDamage = baseTimeToIgnoreDamage;
+                ignoreDamage = false;
+            }
+
+            //prototype of the second spell
+            if (Input.GetMouseButtonDown(0))
+            {
+                Vector3 xVector = new Vector3(rayStartPos.position.x + mousePosition.x, 0, 0);
+                Vector3 yVector = new Vector3(xVector.x, rayStartPos.position.y + mousePosition.y, 0);
+                Vector3 direction = new Vector3(xVector.x + yVector.x, xVector.y + yVector.y, xVector.z + yVector.z);
+                Ray ray = new Ray(transform.position, Vector3.Normalize(direction));
+                RaycastHit2D[] raycastHit = Physics2D.GetRayIntersectionAll(ray, Mathf.Infinity);
+
+                Debug.Log(ray.direction);
+                foreach(var hit in raycastHit)
+                {
+                    Debug.Log(hit.collider.tag);
+                }
+            }
         }
 
         private void FixedUpdate()
@@ -122,6 +154,7 @@ namespace ClearSky
             if(collision.gameObject.tag == "Box" && collision.gameObject.GetComponent<Rigidbody2D>().velocity.magnitude >= 40)
             {
                 health--;
+                ignoreDamage = true;
             }
         }
     }
