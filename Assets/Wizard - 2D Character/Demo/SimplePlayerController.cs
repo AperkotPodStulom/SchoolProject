@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using GlobalThings;
+using Support;
 
 namespace ClearSky
 {
@@ -112,17 +113,12 @@ namespace ClearSky
             //prototype of the second spell
             if (Input.GetMouseButtonDown(0))
             {
-                Vector3 xVector = new Vector3(rayStartPos.position.x + mousePosition.x, 0, 0);
-                Vector3 yVector = new Vector3(xVector.x, rayStartPos.position.y + mousePosition.y, 0);
+                Vector3 xVector = new Vector3(rayStartPos.position.x + mousePosition.x, rayStartPos.position.y);
+                Vector3 yVector = new Vector3(xVector.x, rayStartPos.position.y + mousePosition.y);
                 Vector3 direction = new Vector3(xVector.x + yVector.x, xVector.y + yVector.y, xVector.z + yVector.z);
-                Ray ray = new Ray(transform.position, Vector3.Normalize(direction));
-                RaycastHit2D[] raycastHit = Physics2D.GetRayIntersectionAll(ray, Mathf.Infinity);
+                Vectors.Normalize(ref direction);
 
-                Debug.Log(ray.direction);
-                foreach(var hit in raycastHit)
-                {
-                    Debug.Log(hit.collider.tag);
-                }
+                Debug.DrawRay(rayStartPos.position, direction);
             }
         }
 

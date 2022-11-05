@@ -1031,6 +1031,10 @@ PrefabInstance:
       propertyPath: airGravity
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 8284547339388956190, guid: 5ead94b90874b064698b3567aac77366, type: 3}
+      propertyPath: rayStartPos
+      value: 
+      objectReference: {fileID: 877222552}
     - target: {fileID: 8284547339440635963, guid: 5ead94b90874b064698b3567aac77366, type: 3}
       propertyPath: m_LocalPosition.y
       value: 5.94
