@@ -7,6 +7,9 @@ public class FloorButtonScript : MonoBehaviour
     [SerializeField] private string point;
     [SerializeField] private Transform objectCreatePos;
     [SerializeField] private GameObject objectPref;
+    [SerializeField] private int numberOfSpawnedObjects;
+    [SerializeField] private GameObject doorToOpen;
+    [SerializeField] private Vector3 howToTransform;
 
     private BoxCollider2D coll;
     private bool active = false;
@@ -29,7 +32,14 @@ public class FloorButtonScript : MonoBehaviour
                     switch (point)
                     {
                         case "CreateObject":
-                            Instantiate(objectPref, objectCreatePos.position, Quaternion.identity);
+                            if (numberOfSpawnedObjects > 0)
+                            {
+                                Instantiate(objectPref, objectCreatePos.position, Quaternion.identity);
+                                numberOfSpawnedObjects--;
+                            }
+                            break;
+                        case "OpenDoor":
+                            doorToOpen.transform.position += new Vector3(doorToOpen.transform.localScale.x, 0);
                             break;
                     }
                     transform.position += new Vector3(0, -0.10f);
@@ -46,7 +56,7 @@ public class FloorButtonScript : MonoBehaviour
             if (active)
             {
                 active = false;
-                transform.position += new Vector3(0, 0.10f);
+                transform.position += howToTransform;
             }
         }
     }

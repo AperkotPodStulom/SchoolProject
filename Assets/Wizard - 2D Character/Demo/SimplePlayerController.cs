@@ -111,14 +111,24 @@ namespace ClearSky
             }
 
             //prototype of the second spell
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(1))
             {
-                Vector3 xVector = new Vector3(rayStartPos.position.x + mousePosition.x, rayStartPos.position.y);
-                Vector3 yVector = new Vector3(xVector.x, rayStartPos.position.y + mousePosition.y);
-                Vector3 direction = new Vector3(xVector.x + yVector.x, xVector.y + yVector.y, xVector.z + yVector.z);
+                Vector3 direction = new Vector3(mousePosition.x - rayStartPos.position.x, mousePosition.y - rayStartPos.position.y);
                 Vectors.Normalize(ref direction);
 
-                Debug.DrawRay(rayStartPos.position, direction);
+                Debug.Log(direction);
+
+                RaycastHit2D[] raycast = Physics2D.RaycastAll(rayStartPos.position, direction);
+                foreach(var hit in raycast)
+                {
+                    if(hit.collider.tag == "Box")
+                    {
+                        direction = new Vector3(direction.x * 60, direction.y * 60);
+                        Rigidbody2D anotherRB = hit.collider.gameObject.GetComponent<Rigidbody2D>();
+                        anotherRB.AddForce(direction, ForceMode2D.Impulse);
+                        continue;
+                    }
+                }
             }
         }
 
