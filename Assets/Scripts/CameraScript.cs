@@ -8,6 +8,13 @@ public class CameraScript : MonoBehaviour
 
     private bool concentrateOnPlayer = true;
     private Vector3 currentVelocity;
+    private GameObject objectToConcentrate;
+
+
+    private void Start()
+    {
+        objectToConcentrate = playerPos.gameObject;
+    }
 
     private void Update()
     {
@@ -20,16 +27,23 @@ public class CameraScript : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             concentrateOnPlayer = false;
-            Collider2D box = Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-            if (box && box.tag == "Box")
-            {
-                transform.position = Vector3.SmoothDamp(transform.position, box.gameObject.transform.position, ref currentVelocity, 0.3f);
-                transform.position = new Vector3(transform.position.x, transform.position.y, -10);
-            }
+            transform.position = Vector3.SmoothDamp(transform.position, objectToConcentrate.gameObject.transform.position, ref currentVelocity, 0.3f);
+            transform.position = new Vector3(transform.position.x, transform.position.y, -10);
         }
         else
         {
             concentrateOnPlayer = true;
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Collider2D box = Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+            if(box && box.tag == "Box")
+                objectToConcentrate = box.gameObject;
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            objectToConcentrate = playerPos.gameObject;
         }
     }
 }

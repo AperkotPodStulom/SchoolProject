@@ -39,7 +39,7 @@ public class FloorButtonScript : MonoBehaviour
                             }
                             break;
                         case "OpenDoor":
-                            doorToOpen.transform.position += new Vector3(doorToOpen.transform.localScale.x, 0);
+                            doorToOpen.transform.position += new Vector3(0, doorToOpen.transform.localScale.y);
                             break;
                     }
                     transform.position += new Vector3(0, -0.10f);

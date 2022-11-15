@@ -11,19 +11,8 @@ public class UIManagerScript : MonoBehaviour
         SceneManager.LoadScene("SampleScene");
     }
 
-    private void Update()
+    public void ExitGame()
     {
-        if (!strangeSceneDeleted)
-        {
-            Scene[] scenes = SceneManager.GetAllScenes();
-            foreach (Scene scene in scenes)
-            {
-                if (scene.name == "DontDestroyOnLoad")
-                {
-                    SceneManager.UnloadSceneAsync(scene);
-                    strangeSceneDeleted = true;
-                }
-            }
-        }
+        Application.Quit();
     }
 }

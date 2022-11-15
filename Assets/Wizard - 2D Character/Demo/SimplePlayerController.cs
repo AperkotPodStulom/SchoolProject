@@ -95,7 +95,6 @@ namespace ClearSky
             //dying
             if(health <= 0)
             {
-                Destroy(gameObject);
                 SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
             }
 
@@ -145,11 +144,13 @@ namespace ClearSky
         {
             float horizontal = Input.GetAxisRaw("Horizontal");
 
-            if(rb.velocity.magnitude <= 5)
+            rb.AddForce(new Vector2(horizontal * movePower, airGravity * Physics2D.gravity.y), ForceMode2D.Force);
+            if(rb.velocity.magnitude >= 5)
             {
-                rb.AddForce(new Vector2(horizontal * movePower, airGravity * Physics2D.gravity.y), ForceMode2D.Force);
+                rb.velocity = new Vector2(0, 0);
             }
-            if(horizontal == 0)
+
+            if (horizontal == 0)
             {
                 rb.velocity = new Vector2(0, 0);
             }
