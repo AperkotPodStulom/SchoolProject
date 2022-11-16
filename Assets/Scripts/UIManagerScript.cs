@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class UIManagerScript : MonoBehaviour
 {
-    private bool strangeSceneDeleted = false; 
     public void StartGame()
     {
         SceneManager.LoadScene("SampleScene");

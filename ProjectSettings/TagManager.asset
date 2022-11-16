@@ -7,6 +7,7 @@ TagManager:
   - FloorButton
   - Box
   - JumpTrigger
+  - StopBox
   layers:
   - Default
   - TransparentFX
