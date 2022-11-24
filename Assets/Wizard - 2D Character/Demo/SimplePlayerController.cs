@@ -158,7 +158,7 @@ namespace ClearSky
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            if(collision.gameObject.tag == "Box" && collision.gameObject.GetComponent<Rigidbody2D>().velocity.magnitude >= 40)
+            if(collision.gameObject.tag == "Box" && collision.gameObject.GetComponent<BoxScript>().State == BoxState.dontHaveSpell)
             {
                 health--;
                 ignoreDamage = true;

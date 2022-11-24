@@ -11,6 +11,7 @@ public enum BoxState
 public class BoxScript : MonoBehaviour
 {
     private BoxState bs = BoxState.dontHaveSpell;
+    private GameObject smth = null;
 
 
     private void OnMouseDrag()
@@ -28,15 +29,21 @@ public class BoxScript : MonoBehaviour
         get { return bs; }
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        if(bs == BoxState.dontHaveSpell)
+        Collider2D[] colls = Physics2D.OverlapBoxAll(transform.position, transform.localScale, 0);
+        foreach (Collider2D coll in colls)
         {
-            Physics2D.IgnoreCollision(GameObject.FindWithTag("StopBox").GetComponent<BoxCollider2D>(), GetComponent<BoxCollider2D>(), true);
+            smth = coll.gameObject.tag == "StopBox" ? coll.gameObject : null;
         }
-        else
+
+        if (bs == BoxState.dontHaveSpell && smth)
         {
-            Physics2D.IgnoreCollision(GameObject.FindWithTag("StopBox").GetComponent<BoxCollider2D>(), GetComponent<BoxCollider2D>(), false);
+            Physics2D.IgnoreCollision(smth.GetComponent<Collider2D>(), GetComponent<Collider2D>(), true);
+        }
+        else if (bs != BoxState.dontHaveSpell && smth)
+        {
+            Physics2D.IgnoreCollision(smth.GetComponent<Collider2D>(), GetComponent<BoxCollider2D>(), false);
         }
     }
 }
