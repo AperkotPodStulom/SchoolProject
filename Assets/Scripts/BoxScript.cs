@@ -37,13 +37,16 @@ public class BoxScript : MonoBehaviour
             smth = coll.gameObject.tag == "StopBox" ? coll.gameObject : null;
         }
 
-        if (bs == BoxState.dontHaveSpell && smth)
+        if (smth)
         {
-            Physics2D.IgnoreCollision(smth.GetComponent<Collider2D>(), GetComponent<Collider2D>(), true);
-        }
-        else if (bs != BoxState.dontHaveSpell && smth)
-        {
-            Physics2D.IgnoreCollision(smth.GetComponent<Collider2D>(), GetComponent<BoxCollider2D>(), false);
+            if (bs == BoxState.dontHaveSpell)
+            {
+                Physics2D.IgnoreCollision(smth.GetComponent<Collider2D>(), GetComponent<Collider2D>(), true);
+            }
+            else
+            {
+                Physics2D.IgnoreCollision(smth.GetComponent<Collider2D>(), GetComponent<BoxCollider2D>(), false);
+            }
         }
     }
 }

@@ -44,6 +44,7 @@ public class FloorButtonScript : MonoBehaviour
                     }
                     transform.position += new Vector3(0, -0.10f);
                     active = true;
+                    
                 }
             }
         }

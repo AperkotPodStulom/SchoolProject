@@ -3,12 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - FloorButton
-  - Box
-  - JumpTrigger
-  - StopBox
-  - StopBoxByPlayer
+  tags: []
   layers:
   - Default
   - TransparentFX
