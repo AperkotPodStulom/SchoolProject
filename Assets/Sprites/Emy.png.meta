@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 488d628e80fdb964c9aee720b5f8e3ee
+guid: 071ae697f60811c48b1ca4b1fdb25285
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -20,12 +20,11 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMipmapLimit: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -37,15 +36,15 @@ TextureImporter:
     filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
-    wrapW: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 0
-  spriteMeshType: 0
+  spriteExtrude: 1
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -64,7 +63,6 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  swizzle: 50462976
   cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
@@ -103,18 +101,6 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -133,8 +119,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 026faf75206e7f942ba8de220383409d
-      internalID: -1451721512
+      spriteID: afa05c44f6b8ed94891538d77754af06
+      internalID: -21845670
       vertices: []
       indices: 
       edges: []
@@ -154,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cff8e0f0f0b9f3a44a52fe6945b415b7
-      internalID: 439733299
+      spriteID: 09fd9ef9e78a60142bbec1b0815c703a
+      internalID: -606540148
       vertices: []
       indices: 
       edges: []
@@ -175,8 +161,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8094ad4404a91d545be589cbf712f9d8
-      internalID: -814584474
+      spriteID: 677f612e2f4022640bd4dcfcc2940bfb
+      internalID: 1574814480
       vertices: []
       indices: 
       edges: []
@@ -185,9 +171,9 @@ TextureImporter:
       name: Emy_3
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 16
-        width: 14
+        width: 15
         height: 16
       alignment: 9
       pivot: {x: 0.5, y: 0}
@@ -196,8 +182,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b95ad07ddb00bb4f8acac2b0a9bbbae
-      internalID: 427078475
+      spriteID: 1e75272f8babd934bb64502d3f2f9a98
+      internalID: 210535569
       vertices: []
       indices: 
       edges: []
@@ -217,8 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39d1f5d937014764d8f9bd56d9ae3f5f
-      internalID: -1010972168
+      spriteID: a98d318cf2e14404c95ab24f01e85e26
+      internalID: -1107297135
       vertices: []
       indices: 
       edges: []
@@ -238,8 +224,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca7c36eb8e549b844a5b19398f1060c3
-      internalID: 1765230488
+      spriteID: 9abf29bd7188ff3498ed7cfd6d48ac2e
+      internalID: 44296481
       vertices: []
       indices: 
       edges: []
@@ -259,8 +245,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c7360de45344914d996ac5c82dd6cf6
-      internalID: -373325049
+      spriteID: 4d6c000c2773ce544b2e45a80a386319
+      internalID: 1477112994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Emy_7
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 16
+        width: 14
+        height: 16
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e70a5beed623834468bb1fa8da44c9f7
+      internalID: 501981656
       vertices: []
       indices: 
       edges: []
@@ -276,15 +283,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Emy_2: -814584474
-      Emy_4: -1010972168
-      Emy_1: 439733299
-      Emy_5: 1765230488
-      Emy_3: 427078475
-      Emy_6: -373325049
-      Emy_0: -1451721512
-  mipmapLimitGroupName: 
+      Emy_2: 1574814480
+      Emy_4: -1107297135
+      Emy_1: -606540148
+      Emy_5: 44296481
+      Emy_3: 210535569
+      Emy_7: 501981656
+      Emy_6: 1477112994
+      Emy_0: -21845670
+  spritePackingTag: 
   pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

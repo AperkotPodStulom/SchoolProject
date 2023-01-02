@@ -91,6 +91,7 @@ public class SimplePlayerController : MonoBehaviour
                 
                 anim.SetBool("Running", true);
             }
+
             
             
             //spell-casting
