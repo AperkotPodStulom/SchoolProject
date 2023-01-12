@@ -14,7 +14,12 @@ public class FPS : MonoBehaviour
         frames = 0;
     }
 
-    void OnGUI()
+	private void Awake()
+	{
+        Application.targetFrameRate = 60;
+	}
+
+	void OnGUI()
     {
         GUILayout.Label("" + fps.ToString("f2"));
     }

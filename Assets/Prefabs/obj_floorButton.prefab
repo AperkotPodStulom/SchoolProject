@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2836884564432421598}
   - component: {fileID: 2836884564432421599}
   - component: {fileID: 2836884564432421596}
-  - component: {fileID: 2739085950398401085}
+  - component: {fileID: 1857720456623825314}
   m_Layer: 0
   m_Name: obj_floorButton
   m_TagString: FloorButton
@@ -112,7 +112,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.1996498}
   m_EdgeRadius: 0
---- !u!114 &2739085950398401085
+--- !u!114 &1857720456623825314
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,9 +121,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2836884564432421597}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d9355b88b9efe647ae2fe96cfd305d5, type: 3}
+  m_Script: {fileID: 11500000, guid: 2eb850dbed9b599418430394c1f87113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   point: 
   objectCreatePos: {fileID: 0}
-  objectPref: {fileID: 3516475138747135637, guid: 7c0f69eda6edcdc4eb2782dc53fcebf0, type: 3}
+  objectPref: {fileID: 0}
+  numberOfSpawnedObjects: 0
+  doorToOpen: {fileID: 0}
+  howToTransform: {x: 0, y: 0, z: 0}

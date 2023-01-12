@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7154249270054603750}
   - component: {fileID: 7154249270054603745}
-  - component: {fileID: 7154249270054603751}
   m_Layer: 0
   m_Name: obj_stopBoxMooving
   m_TagString: StopBox
@@ -59,15 +58,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &7154249270054603751
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7154249270054603744}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 673058ecff543264992f915032a1528c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
